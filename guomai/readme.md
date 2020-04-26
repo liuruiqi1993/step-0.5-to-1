@@ -1,0 +1,1 @@
+vant-ui里tabs的wxml中tabs的sticky container被我改了

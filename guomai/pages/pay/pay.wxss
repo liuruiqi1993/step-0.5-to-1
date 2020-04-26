@@ -1,0 +1,29 @@
+/* pages/pay/pay.wxss */
+@import "/components/guo-order-item/index.wxss";
+.note {
+	margin: var(--guo-padding-v) 0;
+	flex-direction: column;
+}
+.note view:first-child {
+	font-size: var(--guo-fs-14);
+	color: var(--guo-text-dark4);
+	margin-bottom: 12rpx;
+}
+.note .image {
+	width: 30rpx;
+	height: 30rpx;
+	margin-right: var(--guo-margin-v);
+}
+.note view:last-child {
+	font-size: var(--guo-fs-13);
+	color: var(--guo-text-gray3);
+}
+.the-btn {
+	box-sizing: border-box;
+	background-color: var(--guo-text-gold);
+	border-radius: var(--guo-br-2);
+	color: #fff;
+}
+.the-btn:after {
+	border: none;
+}

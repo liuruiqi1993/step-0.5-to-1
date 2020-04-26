@@ -1,0 +1,20 @@
+<!--pages/pay/pay.wxml-->
+<import src="/components/guo-order-item/index.wxml" />
+<view class="guo-bg">
+    <!-- <guo-order-item/> -->
+    <template is="guo-order-item" data="{{...order}}" />
+    <view class="note guo-center-h guo-center-v">
+        <view  class="guo-center-h guo-center-v">
+            <image class="image" src="/images/icon-success.png" /> 
+            支付成功！{{location ? '': '快分享好友填写地址吧~'}}
+        </view>
+        <view wx:if="{{!location}}">
+            24小时内未填写地址，订单将会自动退款
+        </view>    
+    </view>
+    
+    <van-button wx:if="{{location}}" class="btn-b" custom-class="btn-b-fs" type="primary" block bind:tap="back">返回
+    </van-button>
+
+    <button wx:else class="the-btn btn-b btn-b-fs" block data-id="{{order_id}}" data-no="{{no}}" open-type="share">邀请好友填写地址</button>
+</view>

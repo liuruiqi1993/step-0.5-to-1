@@ -1,0 +1,30 @@
+function double_digital(num) {
+	num = Math.round(num);
+	return num < 10 ? '0' + num : num;
+}
+module.exports = {
+	double_digital: double_digital,
+	money: function(a = 0) {
+		a = a / 1;
+		return (Math.round(a * 100) / 100).toFixed(2);
+	},
+	time: function(str = '', format = 'YYYY-MM-DD hh:mm:ss') {
+		if (str) {
+			var date = getDate(str);
+			var y = double_digital(date.getFullYear());
+			var m = double_digital(date.getMonth() + 1);
+			var d = double_digital(date.getDate());
+			var h = double_digital(date.getHours());
+			var min = double_digital(date.getMinutes());
+			var s = double_digital(date.getSeconds());
+			format = format
+				.replace('YYYY', y)
+				.replace('MM', m)
+				.replace('DD', d)
+				.replace('hh', h)
+				.replace('mm', min)
+				.replace('ss', s);
+			return format;
+		}
+	}
+};

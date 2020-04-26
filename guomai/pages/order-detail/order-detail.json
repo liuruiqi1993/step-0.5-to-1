@@ -1,0 +1,6 @@
+{
+	"navigationBarTitleText": "订单详情",
+	"usingComponents": {
+		"guo-location": "/components/guo-location/index"
+	}
+}

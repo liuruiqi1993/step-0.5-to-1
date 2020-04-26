@@ -1,0 +1,39 @@
+<!--pages/transport/transport.wxml-->
+<wxs src="../../filters/filters.wxs" module="filters" />
+<view class="guo-bg">
+<guo-location location="{{ship.location}}" />
+<view class="detail">
+    <view class="guo-head2">详情</view>
+    <view class="status">
+        <view class="guo-desc guo-center-v">
+            承运物流：
+            <span class="span">{{ship.detail.express_company}}</span>
+        </view>
+        <view class="guo-desc guo-center-v">
+            物流单号：
+            <span class="span">{{ship.detail.express_no}}</span>
+        </view>
+    </view>
+</view>
+
+<view class="map" wx:if="{{list.length}}">
+    <!-- 竖线 -->
+    <div class="line"></div>
+
+    <view class="row {{!index ? 'active': ''}}" wx:for="{{list}}" wx:key="index">
+        <view class="left">
+            <text class="top">{{filters.time(item.time, 'MM-DD')}}</text>
+            <text class="bottom">{{filters.time(item.time, 'hh:mm')}}</text>
+        </view>
+        <view class="center">
+            <image wx:if="{{item.hide !== true}}" class="icon"
+                src="{{!index ? statusOption[item.status].activeIcon : statusOption[item.status].icon}}" />
+        </view>
+        <view class="right">
+            <text class="top" wx:if="{{item.hide !== true}}">{{statusOption[item.status].title}}</text>
+            <text wx:if="{{item.status == '发货'}}" class="bottom">包裹正在等待揽收</text>
+            <text wx:else class="bottom">{{item.context}}</text>
+        </view>
+    </view>
+</view>
+</view>

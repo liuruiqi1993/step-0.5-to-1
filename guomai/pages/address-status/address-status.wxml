@@ -1,0 +1,8 @@
+<!--pages/address-status/address-status.wxml-->
+<image class="status guo-center-h" src="/images/status{{type}}.png" mode="aspectFill" lazy-load="false" />
+<view class="guo-center-h guo-desc note" selectable="false">
+    {{text[type]}}
+</view>
+<navigator class="btn guo-center-h" target="miniProgram" hover-class="none" open-type="exit">
+    返回
+</navigator>

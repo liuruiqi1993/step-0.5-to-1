@@ -1,0 +1,43 @@
+/* components/guo-location/index.wxss */
+.guo-location {
+	background-color: #fff;
+	overflow: hidden;
+}
+.guo-text2 {
+	padding: var(--guo-padding-v) var(--guo-padding-h) 0;
+	font-size: var(--guo-fs-16);
+	line-height: var(--guo-lh-7);
+	font-weight: var(--guo-fw);
+	color: var(--guo-text-dark4);
+}
+.location {
+	background-color: var(--guo-bg);
+	margin: 24rpx var(--guo-padding-h) 48rpx;
+	padding: var(--guo-padding-v) var(--guo-padding-h);
+	border-radius: var(--guo-br-4);
+}
+.text {
+	display: inline-flex;
+	font-size: var(--guo-fs-14);
+	color: var(--guo-text-gray3);
+}
+.text .label {
+	white-space: nowrap;
+}
+.text .span {
+	color: var(--guo-text-dark4);
+}
+.text1 {
+	align-items: start;
+	width: 50%;
+	margin-bottom: var(--guo-margin-v);
+}
+.text2 {
+	align-items: start;
+	width: 100%;
+}
+.space-between {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}

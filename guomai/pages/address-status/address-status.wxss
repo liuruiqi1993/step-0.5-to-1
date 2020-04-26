@@ -1,0 +1,21 @@
+/* pages/address-status/address-status.wxss */
+.status {
+	margin: 200rpx auto 8rpx;
+	width: 514rpx;
+	height: 258rpx;
+}
+.note {
+	line-height: 30rpx;
+	height: 30rpx;
+}
+.btn {
+	position: fixed;
+	width: 370rpx;
+	height: 72rpx;
+	line-height: 72rpx;
+	left: 190rpx;
+	top: 576rpx;
+	color: #fff;
+	background-color: var(--guo-text-gold);
+	border-radius: var(--guo-br-2);
+}

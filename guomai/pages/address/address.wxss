@@ -1,0 +1,52 @@
+/* pages/address/address.wxss */
+.guo-head2 {
+	padding: var(--guo-padding-v) var(--guo-padding-h);
+	background-color: #fff;
+}
+.form-item {
+	padding: 0 var(--guo-padding-h);
+	background-color: #fff;
+}
+label {
+	display: flex;
+	width: 100%;
+	border-top: 1rpx solid var(--guo-bg);
+	padding: var(--guo-padding-v) 0;
+	color: var(--guo-text-dark4);
+	font-size: var(--guo-fs-15);
+}
+.title {
+	margin-right: var(--guo-margin-v);
+	white-space: nowrap;
+}
+.flex {
+	flex: 1;
+	justify-content: flex-end;
+}
+picker {
+	flex: 1;
+}
+picker textarea {
+	width: auto;
+}
+input,
+textarea {
+	text-align: right;
+	color: var(--guo-text-dark4);
+}
+.input {
+	width: 150rpx;
+}
+.border {
+	border-top: var(--guo-margin-v) solid var(--guo-bg);
+}
+.placeholder {
+	color: var(--guo-text-gray4);
+	font-size: var(--guo-fs-15);
+}
+.address {
+	margin-top: 2rpx;
+	width: 36rpx;
+	height: 36rpx;
+	padding-left: var(--guo-margin-v);
+}

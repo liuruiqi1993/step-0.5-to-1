@@ -1,0 +1,94 @@
+<!--pages/book/book.wxml-->
+<wxs src="../../filters/filters.wxs" module="filters" />
+
+<template name="bookDetail">
+    <view wx:if="{{image}}" class="detail">
+        <image mode="widthFix" lazy-load src="{{image}}" />
+    </view>
+</template>
+
+<view wx:if="{{book}}" class="wrap">
+    <!-- 轮播图 -->
+    <guo-swiper imgs="{{book.images}}" height="{{662}}" />
+    <!-- 名字价格 -->
+    <view class="summary">
+        <view class="name guo-bold">
+            {{book.name}}
+        </view>
+        <view wx:if="{{book.desc}}" class="desc">
+            {{book.desc}}
+        </view>
+        <view>
+            <span class="guo-price guo-text-gold">
+                <i>¥</i>{{filters.money(currentBook.price)}}
+            </span>
+            <span wx:if="{{currentBook.off_price}}" class="guo-price-pre">
+                ¥{{filters.money(currentBook.off_price)}}
+            </span>
+        </view>
+    </view>
+    <!-- 流程 -->
+    <image class="flow" mode="aspectFit" src="/images/flow.png" />
+    <!-- 选择 -->
+    <view>
+        <view class="head guo-head2">
+        选择心仪的书盒
+        </view>
+        <van-radio-group class="choice"  bind:change="onChange">
+            <van-radio custom-class="radio"
+                label-class="radio-label guo-no-wrap {{currentBook.id ==item.id ? 'radio-active': ''}}"
+                wx:for="{{book.boxes}}" wx:key="id" name="{{index}}">
+                <view class="name {{currentBook.id ==item.id ? 'guo-bold': ''}}">
+                    {{item.title}}
+                </view>
+                <view class="num">
+                    <!-- todo -->
+                   （{{item.send_count || 0}}人选择）
+                </view>
+                </van-radio>
+        </van-radio-group>
+    </view>
+    <!-- 详情 -->
+    <!-- todo -->
+    <template is="bookDetail" data="{{image: imgURL+currentBook.content}}"></template>
+    <!-- 添加 -->
+    <view class="bottom-action">
+        <view class="bottom-action-item  count guo-center-v guo-space-between">
+            <div>已选<span class="span">“{{book.name}}”</span>规格{{currentBook.title}}</div>
+            <van-stepper custom-class="stepper" input-class="input" plus-class="plus"
+            minus-class="minus"
+            value="{{ count }}" bind:change="onCountChange" />
+        </view>
+        <view class="bottom-action-item  total guo-center-v guo-space-between">
+            <div class="guo-center-v">
+                应付： <span class="guo-price guo-text-gold">
+                    ¥{{filters.money(total)}}
+                </span>
+            </div>
+            <van-button 
+            custom-class="ready guo-br-2"
+            type="primary" bind:tap="ready">立即送礼</van-button>
+        </view>
+    </view>
+    <van-popup position="bottom" round show="{{ showPop }}" bind:close="switchPop">
+        <view class="pop">
+            <view class="guo-head2">选择地址填写方式</view>
+            <view class="guo-space-between guo-center-v">
+                <view class="address  guo-br-2 guo-center-v guo-center-h" bind:tap="address" data-type="1">
+                    <image class="icon" src="/images/icon-address-1.png"  />
+                    <span class="text1">好友填地址</span>
+                    <span class="text2">需支付后再邀请好友填地址哦</span>
+                </view>
+                <view class="address guo-br-2 guo-center-v guo-center-h" bind:tap="address" data-type="2">
+                    <image class="icon" src="/images/icon-address-2.png"  />
+                    <span class="text1">自己填地址</span>
+                    <span class="text2"></span>
+                </view>
+            </view>
+        </view>
+    </van-popup>
+    <button open-type="contact">
+        <image bind:tap="tap" class="service" src="/images/icon-service.png" />
+    </button>
+</view>
+  

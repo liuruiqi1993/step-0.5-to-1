@@ -1,0 +1,17 @@
+<!--components/guo-list/index.wxml-->
+<wxs src="../../filters/filters.wxs" module="filters" />
+<view class="guo-list">
+    <div class="guo-item" wx:for="{{list}}" wx:key="index" data-id="{{item.id}}" bind:tap="onClick">
+        <van-image width="690rpx" fit="cover" height="368rpx" lazy-load src="{{imgURL}}{{item.image_list}}" />
+        <view class="row fs-row">
+            <text class="text">{{item.name}}</text>
+            <view class="money row">{{filters.money(item.price)}}
+                <span class="span">元</span>
+            </view>
+        </view>
+        <view class="row space-between">
+            <text class="desc">{{item.desc}}</text>
+            <text class="desc read"> {{item.sold_count}}人送过</text>
+        </view>
+    </div>
+</view>

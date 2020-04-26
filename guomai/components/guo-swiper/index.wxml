@@ -1,0 +1,20 @@
+<!--components/guo-swiper/index.wxml-->
+<view class="swiper-wrap">
+    <swiper 
+    class="swiper" 
+    style="height: {{height}}rpx" autoplay="true" 
+    circular 
+    interval="{{interval}}"
+    bind:change="onChange">
+        <swiper-item wx:for="{{imgs}}" wx:key="id">
+            <view class="swiper-item">
+                <van-image width="100%" height="100%" 
+                fit="cover" lazy-load src="{{imgURL}}{{key ?item[key] : item}}" />
+                <image wx:if="{{hot && item}}" class="hot" src="/images/icon-hot.png" />
+            </view>
+        </swiper-item>
+    </swiper>
+    <cover-view class="indicator">
+        <cover-view class="indicator-item {{current === index? 'current': ''}}" wx:for="{{imgs}}" wx:key="id"></cover-view>
+    </cover-view>
+</view>

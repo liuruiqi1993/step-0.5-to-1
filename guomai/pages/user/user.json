@@ -1,0 +1,6 @@
+{
+	"navigationBarTitleText": "我的",
+	"usingComponents": {
+		"guo-order-list": "/components/guo-order-list/index"
+	}
+}

@@ -1,0 +1,40 @@
+<!--pages/address/address.wxml-->
+<view class="guo-bg">
+    <view class="guo-head2">请填写收礼地址</view>
+    <form>
+        <view class="form-item">
+            <label class="guo-center-v guo-space-between" for="name">
+                <span class="title">收礼人姓名</span>
+                <input class="flex" id="name" placeholder-class="placeholder" placeholder="请输入姓名"
+                    data-key="contact_name" value="{{contact_name}}" bindchange="bindChange" />
+            </label>
+        </view>
+        <view class="form-item">
+            <label class="guo-center-v guo-space-between" for="phone">
+                <span class="title">电话号码</span>
+                <input id="phone" type="number" placeholder-class="placeholder" placeholder="请输入电话号码" data-key="contact_phone"
+                    value="{{contact_phone}}" bindchange="bindChange" />
+            </label>
+        </view>
+        <view class="form-item border">
+            <label class="guo-center-v guo-space-between" for="area">
+                <span class="title">所在地区</span>
+                <view class="flex guo-center-v">
+                    <picker mode="region" bindchange="bindChange" data-key="area" value="{{area}}">
+                        <textarea class="flex" id="area" auto-height value="{{area[0]}}{{area[1]}}{{area[2]}}"
+                            placeholder-class="placeholder" disabled placeholder="请选择省市区"></textarea>
+                    </picker>
+                    <image class="address" src="/images/icon-address.png" bind:tap="getLocation" />
+                </view>
+            </label>
+        </view>
+        <view class="form-item">
+            <label class="guo-center-v guo-space-between" for="address">
+                <span class="title">详细地址</span>
+                <textarea class="flex" id="address" auto-height data-key="full_address" value="{{full_address}}"
+                    placeholder-class="placeholder" placeholder="输入详细地址" bindconfirm="bindChange" bindblur="bindChange"></textarea>
+            </label>
+        </view>
+    </form>
+    <van-button class="btn-b" custom-class="btn-b-fs" type="primary" block bind:tap="submit">提交收礼地址</van-button>
+</view>

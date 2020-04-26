@@ -1,0 +1,125 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"enhance": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.10.3",
+	"appid": "",
+	"projectname": "guomai",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/address/address",
+					"pathName": "pages/address/address",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "pages/pay/pay",
+					"pathName": "pages/pay/pay",
+					"query": "id= 20200409140643017178",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/user",
+					"pathName": "pages/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/transport/transport",
+					"pathName": "pages/transport/transport",
+					"query": "no=20200419202330021465",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/order/order",
+					"pathName": "pages/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "pages/address/address",
+					"pathName": "pages/address/address",
+					"query": "no=20200424204356611534&id=87&from=4",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/address/address",
+					"pathName": "pages/address/address",
+					"query": "no= 20200424204044904548&id=86&from=3",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "pages/address/address",
+					"pathName": "pages/address/address",
+					"query": "no=20200423162259529547&id=80&from=5",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "pages/address/address",
+					"pathName": "pages/address/address",
+					"query": "no=20200416153423434533&id=38&from=4",
+					"scene": null
+				}
+			]
+		}
+	}
+}

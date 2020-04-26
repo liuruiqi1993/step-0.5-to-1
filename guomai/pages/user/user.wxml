@@ -1,0 +1,41 @@
+<!--pages/user/user.wxml-->
+<view class="guo-bg">
+    <!-- 头部 -->
+    <view class="userinfo guo-center-v">
+        <van-image class="avatar" width="108rpx" height="108rpx" use-error-slot use-loading-slot lazy-load src="{{userInfo.avatarUrl}}" round >
+            <image slot="error" class="placeholder" src="/images/icon-avatar.png" />
+            <image slot="loading" class="placeholder" src="/images/icon-avatar.png" />
+        </van-image>
+        <view class="flex guo-space-between guo-center-v" wx:if="{{userInfo}}">
+            <view class="guo-head2">{{userInfo.nickName}}</view>
+            <button class="service guo-desc" open-type="contact">联系客服</button>
+        </view>
+        <navigator wx:else url="/pages/login/login" hover-class="none">
+            <view class="guo-head2">未登录</view>
+            <view class="guo-desc">你还没有登录哦，快去登录吧~</view>
+        </navigator>
+    </view>
+    <!-- 我送出的 -->
+    <view>
+        <view class="padding guo-head2">我送出的</view>
+        <van-tabs 
+        active="{{status}}"
+        bind:change="onChange"
+        custom-class="custom-class" tab-class="tab-class" tab-active-class="tab-active-class" color="#CBAB75" border="{{false}}" sticky>
+            <van-tab wx:for="{{tabbar}}" name="{{item.status}}" wx:key="index" title="{{item.title}} ({{orderGroups[item.status].total || 0}})">
+                <guo-order-list bind:popUp="switchPop" text="{{item.text}}" list="{{orderGroups[item.status].list || []}}"/>
+            </van-tab>
+        </van-tabs>
+    </view>
+    <!-- 确认收货 -->
+    <van-popup show="{{ showPop }}" duration="{{0}}" closeable  round bind:close="switchPop" custom-class="pop">
+        <view class="guo-head2 guo-center-h">温馨提醒</view>
+        <view class="text">
+            确认收货？
+        </view>
+        <view class="guo-space-between">
+            <van-button custom-class="btns" plain type="primary" bind:click="switchPop">取消</van-button>
+            <van-button custom-class="btns" type="primary" bind:tap="recieve">确认</van-button>
+        </view>
+    </van-popup>
+</view>

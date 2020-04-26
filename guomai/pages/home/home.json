@@ -1,0 +1,6 @@
+{
+	"usingComponents": {
+		"guo-list": "/components/guo-list/index",
+		"guo-swiper": "/components/guo-swiper/index"
+	}
+}

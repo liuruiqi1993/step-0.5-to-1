@@ -1,0 +1,5 @@
+{
+	"usingComponents": {
+		"guo-order-item": "/components/guo-order-item/index"
+	}
+}

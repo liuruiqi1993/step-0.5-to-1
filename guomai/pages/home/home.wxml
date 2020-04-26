@@ -1,0 +1,12 @@
+<!--pages/home/home.wxml-->
+<view class="liner">
+    <!-- 轮播 -->
+    <guo-swiper bind:tap="toDetail" imgs="{{banner.images}}" hot height="{{510}}" />
+    <!-- 种类 -->
+    <van-checkbox-group value="{{ type }}" max="{{ 2 }}" bind:change="onChange">
+        <van-checkbox custom-class="check {{(index+1)%3 ?'': 'mr'}}"
+            label-class="check-label guo-no-wrap guo-text-13 guo-dark guo-center-v guo-center-h  {{type==item.id ? 'check-active': ''}}"
+            wx:for="{{typeOptions}}" wx:key="id" name="{{item.id}}">{{item.name}}</van-checkbox>
+    </van-checkbox-group>
+</view>
+<guo-list list="{{list}}" />

@@ -1,0 +1,68 @@
+/* pages/order-detail/order-detail.wxss */
+@import '/pages/book/book.wxss';
+@import '/components/guo-order-item/index.wxss';
+
+.gap {
+	border-top: none;
+	border-bottom: var(--guo-margin-v) solid var(--guo-bg);
+}
+/* 书详情 */
+.good {
+	padding: 0 var(--guo-padding-h);
+	margin: 36rpx 0 -24rpx;
+}
+/* 订单详情 */
+.status-wrap {
+	padding: var(--guo-padding-v) var(--guo-padding-h);
+}
+.status-wrap .order-detail-head {
+	margin-bottom: 24rpx;
+}
+.status {
+	padding: var(--guo-padding-v) var(--guo-padding-h);
+	background: var(--guo-bg-gold-light);
+	border-radius: var(--guo-br-4);
+}
+.status .guo-desc {
+	font-weight: normal;
+}
+.detail {
+	padding: var(--guo-padding-v) var(--guo-padding-h);
+}
+.status-content {
+	background: var(--guo-bg-gold-light);
+	border-radius: var(--guo-br-4);
+	padding: 28rpx 32rpx;
+}
+.first-row {
+	margin-bottom: 12rpx;
+}
+
+.guo-desc {
+	margin-left: 9rpx;
+	line-height: 40rpx;
+}
+.guo-desc .span {
+	color: var(--guo-text-dark4);
+}
+.pop {
+	width: 80vw;
+}
+.pop .text {
+	margin: 50rpx;
+}
+.pop .btns {
+	width: 200rpx;
+}
+.icon {
+	width: 26rpx;
+	height: 26rpx;
+}
+.first-row .icon {
+	margin-right: 8rpx;
+}
+.countDown {
+	display: block;
+	color: var(--guo-text-gray3);
+	margin: 8rpx 0 0 var(--guo-padding-h);
+}

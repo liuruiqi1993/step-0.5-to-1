@@ -1,0 +1,6 @@
+{
+	"usingComponents": {
+		"guo-location": "/components/guo-location/index",
+		"guo-order-item": "/components/guo-order-item/index"
+	}
+}

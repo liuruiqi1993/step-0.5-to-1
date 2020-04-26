@@ -1,0 +1,16 @@
+/* pages/order/order.wxss */
+@import "/components/guo-order-item/index.wxss";
+.note {
+	height: 90rpx;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #fff;
+	padding: 0 var(--guo-padding-h);
+}
+.remind {
+	position: fixed;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 176rpx;
+}

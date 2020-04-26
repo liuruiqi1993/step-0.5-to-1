@@ -1,0 +1,67 @@
+<!--components/guo-order-item/index.wxml-->
+<wxs src="../../filters/filters.wxs" module="filters" />
+<template name="guo-order-item">
+    <view class="guo-order-item gap">
+        <view class="top" data-no="{{order.no}}" bind:tap="toDetail">
+            <van-image width="196rpx" height="196rpx" fit="cover" lazy-load src="{{group.images[0] ? order.imgURL+group.images[0] : ''}}" />
+            <view class="flex">
+                <view class="guo-text2 van-ellipsis">
+                    {{ group.name}}
+                </view>
+                <view class="gray van-multi-ellipsis--l2">
+                    【{{ book.title}}】 {{ book.desc}}
+                </view>
+                <view class="space-between wrapper">
+                    <span>¥{{filters.money( book.price)}}</span>
+                    <span class="num">× {{book.amount}}</span>
+                </view>
+            </view>
+        </view>
+        <view class="bottom space-between">
+            <span>{{order.order_status === 3 ? '退款成功' : order.ship_status}}</span>
+            <div>
+                合计： <span class="price"><i class="i">¥</i>{{filters.money(order.total_amount)}}</span>
+            </div>
+        </view>
+    </view>
+</template>
+<!-- 详情 -->
+<template is="guo-order-item"
+    data="{{ group: order.items[0].gift,  book: order.items[0].box,   order: { order_status: order.order_status, no: order.no,  ship_status: order.ship_status, total_amount: order.total_amount, imgURL} }}" />
+
+<view class="guo-order-item bottom-margin" wx:if="{{order.order_status !== 3}}">
+    <!-- 状态组 -->
+    <!-- 填地址 -->
+    <view wx:if="{{!order.address}}" class="padding flex-end">
+        <button class="btn share" hover-class="none" type="primary" size="small" data-id="{{order.id}}" data-no="{{order.no}}" open-type="share">好友填地址</button>
+    </view>
+    <view wx:else>
+        <!-- 显示隐藏地址 -->
+        <view>
+            <view class="location" wx:if="{{showLocation}}">
+                <p class="text text1">
+                    <span class="label">收件人：</span>
+                    <span class="span">{{order.address.contact_name}}</span>
+                </p>
+                <p class="text text1"><span class="label">联系电话：</span>
+                    <span class="span">{{order.address.contact_phone}}</span>
+                </p>
+                <p class="text text2">
+                    <span class="label">收礼地址：</span>
+                    <span class="span">{{order.address.zip}} {{order.address.address}}</span>
+                </p>
+            </view>
+            <view class="text padding" bind:tap="switchLocation">
+                {{showLocation ? "收起":"查看"}}收礼地址
+                <van-icon name="arrow" wx:if="{{!showLocation}}" />
+                <van-icon name="arrow-up" wx:if="{{showLocation}}" />
+            </view>
+        </view>
+        <view class="padding flex-end">
+            <!-- 物流 -->
+            <van-button class="btn" plain type="primary" size="small"  data-no="{{order.no}}" bind:tap="toTransport" wx:if="{{order.ship_data && order.ship_data.express_no}}">查看物流</van-button>
+            <!-- 签收 -->
+            <van-button class="btn" type="primary" size="small" data-id="{{order.id}}"  bind:tap="recieve" wx:if="{{order.order_status === 2}}">确认签收</van-button>
+        </view>
+    </view>
+</view>

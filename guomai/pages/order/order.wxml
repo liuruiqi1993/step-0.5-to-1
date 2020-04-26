@@ -1,0 +1,17 @@
+<!--pages/order/order.wxml-->
+<import src="/components/guo-order-item/index.wxml" />
+<view class="guo-bg">
+    <guo-location wx:if="{{location}}" location="{{location}}"></guo-location>
+    <view wx:else class="note">
+        <text class="guo-text-13 guo-text-gold guo-bold">1.立即支付</text>
+        <text class="guo-text-13 guo-text-dark">2.邀好友填地址</text>
+        <text class="guo-text-13 guo-text-dark">3.好友填地址</text>
+        <text class="guo-text-13 guo-text-dark">4.快递到家</text>
+    </view>
+    <template is="guo-order-item" data="{{...order}}" />
+    <text  wx:if="{{!location}}" class="remind guo-desc guo-no-wrap">
+        24小时未填写地址，订单将会自动退款
+    </text>
+    <van-button class="btn-b" custom-class="btn-b-fs" type="primary" block bind:click="submit">立即支付</van-button>
+</view>
+ 

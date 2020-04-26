@@ -1,0 +1,101 @@
+<!--pages/order-detail/order-detail.wxml-->
+<import src="/components/guo-order-item/index.wxml" />
+<import src="/pages/book/book.wxml" />
+<wxs src="../../filters/filters.wxs" module="filters" />
+<view class="gap status-wrap">
+    <!-- 待发货 -->
+    <view class="status guo-space-between guo-center-v"  wx:if="{{order.order_status === 1}}">
+        <view class="guo-head2 guo-text-gold guo-center-v" >
+            待发货
+            <span class="guo-desc">({{order.address ? '正在为您打包礼盒哦~' : '好友未填写收礼地址'}})</span>
+        </view>
+        <button class="btn share" hover-class="none" type="primary" size="small" data-id="{{order.id}}"  data-no="{{order.no}}" open-type="share" wx:if="{{!order.address}}">好友填地址</button>
+    </view>
+    <!-- 已发货 -->
+    <view wx:elif="{{order.order_status === 2}}">
+        <view class="status guo-space-between guo-center-v">
+            <view class="guo-head2 guo-text-gold guo-center-v">
+                已发货
+                <span class="guo-desc">(正在路上，等待签收哦~)</span>
+            </view>
+            <van-button class="btn share" type="primary" size="small" data-id="{{order.id}}" bind:tap="switchPop" data-text="">
+                确认签收</van-button>
+        </view>
+        <van-count-down wx:if="{{countDown>0}}" use-slot time="{{ countDown }}" bind:change="onTimeChange"><text
+                class="countDown">还剩{{ timeData.days }}天{{ timeData.hours }}时{{ timeData.minutes }}分{{ timeData.seconds }}秒自动确认签收</text>
+        </van-count-down>
+    </view>
+    <!-- 已签收 -->
+    <view class="status guo-space-between guo-center-v" wx:elif="{{order.order_status === 4}}">
+        <view class="guo-head2 guo-text-gold guo-center-v">
+            已确认签收
+        </view>
+    </view>
+    <!-- 已退款 -->
+    <view class="status guo-space-between guo-center-v" wx:elif="{{order.order_status === 3}}">
+        <view class="guo-head2 guo-text-gold guo-center-v">
+            退款成功
+        </view>
+    </view>
+</view>
+<view class="gap">
+    <guo-location location="{{order.address}}">
+        <view class="guo-center-v">
+            <image class="icon" wx:if="{{order.order_status === 1}}" src="/images/icon-edit.png" bind:tap="switchPop" data-text="修改收礼地址，请联系客服处理哦~"/> 
+            <text class="guo-desc guo-text-gold" data-no="{{order.no}}" bind:tap="toTransport" wx:elif="{{order.order_status !== 3}}">
+                查看物流
+            </text>
+        </view>
+    </guo-location>
+</view>
+
+<view>
+    <view class="guo-head2 good">详情</view>
+    <template is="guo-order-item" data="{{ group: order.items[0].gift,  book: order.items[0].box, order: {order_status: order.order_status, id: order.no,  ship_status: order.ship_status, total_amount: order.total_amount, imgURL } }}" />
+</view>
+  
+<view class="gap">
+    <!-- todo -->
+    <template class="detail" is="bookDetail" data="{{image: imgURL +order.items[0].box.content}}"></template>
+</view>
+
+<view class="order-detail status-wrap">
+    <view class="guo-space-between order-detail-head">
+        <view class="guo-head2">订单详情</view>
+        <text class="guo-desc" bind:tap="switchPop" data-text="订单退款联系客服处理哦~">退款</text>
+    </view>
+    <view class="status-content">
+        <view class="space-between guo-center-v first-row">
+            <view class="guo-desc guo-center-v">
+                订单号：
+                <span class="span">{{order.no}}</span>
+            </view>
+            <view class="guo-desc guo-center-v" data-text="{{order.no}}" bind:tap="copy"><image class="icon" src="/images/icon-copy.png" />复制</view>
+        </view>
+        <view class="space-between guo-center-v">
+            <view class="guo-desc">
+                下单时间：
+                <span class="span">{{filters.time(order.created_at)}}</span>
+            </view>
+        </view>
+        <view class="space-between guo-center-v">
+            <view class="guo-desc guo-center-v">
+                支付方式：
+                <span class="span">微信支付</span>
+            </view>
+            <van-button size="small" type="primary"  open-type="contact">联系客服</van-button>
+        </view>
+    </view>
+</view>
+  
+<van-popup show="{{ showPop }}" duration="{{0}}" closeable round bind:close="switchPop" custom-class="pop">
+    <view class="guo-head2 guo-center-h">温馨提醒</view>
+    <view class="text">
+        {{popText || "确认签收"}}
+    </view>
+    <van-button wx:if="{{popText}}" block type="primary" open-type="contact">联系客服</van-button>
+    <view class="guo-space-between" wx:else>
+        <van-button custom-class="btns" plain type="primary" bind:click="switchPop">取消</van-button>
+        <van-button custom-class="btns" type="primary" bind:tap="recieve">确认</van-button>
+    </view>
+</van-popup>

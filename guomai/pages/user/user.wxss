@@ -1,0 +1,55 @@
+/* pages/user/user.wxss */
+.userinfo {
+	padding: var(--guo-padding-v) var(--guo-padding-h);
+	border-bottom: var(--guo-margin-v) solid var(--guo-bg);
+	background-color: #fff;
+}
+.avatar {
+	margin-right: var(--guo-padding-v);
+}
+.placeholder {
+	width: 100%;
+	height: 100%;
+}
+.service {
+	margin: 0;
+	padding: 0;
+	background: none;
+}
+.service::after {
+	border: none !important;
+}
+.flex {
+	flex: 1;
+}
+.padding {
+	background-color: #fff;
+	padding: var(--guo-padding-v) var(--guo-padding-h) 0;
+}
+.custom-class .van-tabs__wrap {
+	border-bottom: 1rpx solid var(--guo-border-light);
+}
+.custom-class .van-tabs__line {
+	/* bottom: -1rpx; */
+}
+.tab-class {
+	font-size: var(--guo-fs-14);
+	color: var(--guo-text-gray2);
+}
+.tab-active-class {
+	color: var(--guo-text-gold) !important;
+}
+.pop {
+	width: 80vw;
+	padding: var(--guo-padding-v) var(--guo-padding-h);
+	overflow: hidden;
+}
+.pop .text {
+	margin: 50rpx;
+	text-align: center;
+	font-size: var(--guo-fs-14);
+	color: var(--guo-text-gray3);
+}
+.pop .btns {
+	width: 200rpx;
+}

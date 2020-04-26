@@ -1,0 +1,28 @@
+/* components/guo-order-list/index.wxss */
+.mt {
+	margin-top: -16rpx;
+	margin-bottom: var(--guo-margin-v);
+}
+.empty-wrap {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 120rpx;
+}
+.empty {
+	width: 199rpx;
+	height: 162rpx;
+	margin-bottom: 20rpx;
+}
+.text {
+	line-height: 1.5;
+	font-size: var(--guo-fs-13);
+	color: var(--guo-text-gray2);
+	padding: 0;
+}
+.btn {
+	margin-top: 60rpx;
+	width: 254rpx;
+	height: 72rpx;
+}
